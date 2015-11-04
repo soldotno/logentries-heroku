@@ -1,0 +1,17 @@
+{
+  "name": "heroku-logger-cli",
+  "version": "1.0.0",
+  "description": "a Cli to view and add logs on heroku. ",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sindre Øye Svendby",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "6.0.20",
+    "heroku-client": "2.3.2",
+    "highland": "2.5.1",
+    "logentries-api": "0.0.6"
+  }
+}
