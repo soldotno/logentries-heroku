@@ -1,18 +1,25 @@
-require("babel-core/register");
 
 const heroku = require('./heroku');
 const logentries = require('./logentries');
 const command = process.argv[2];
 const args = process.argv[3];
-const subarg = process.argv[4];
+const subarg = process.argv.slice(4);
+
 console.log(command, args, subarg);
 
 switch (command) {
   case 'logentries':
-    logentries[args](subarg)
+    logentries[args](...subarg)
+      // .each((app) => {
+      //    console.log(app);
+      // })
     break;
   case 'heroku':
-    heroku[args];
+    heroku[args](...subarg)
+      .each((app) => {
+         console.log(app);
+      })
+    break;
   default:
     usage();
 

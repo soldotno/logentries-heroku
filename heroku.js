@@ -23,11 +23,11 @@ var heroku = new Heroku({
   token: process.env.HEROKU_API_TOKEN
 });
 
-var hkApps = heroku.apps();
-var appList = hl.wrapCallback(hkApps.list.bind(hkApps));
+const hkApps = heroku.apps();
+const appList = hl.wrapCallback(hkApps.list.bind(hkApps));
 
 function showAppNameThat(filter) {
-  appList()
+  return appList()
     .flatMap(x => x)
     .map(getLogDrains)
     .flatten()
@@ -37,9 +37,6 @@ function showAppNameThat(filter) {
       logs: app.logs
     }))
     .errors(e => console.log('error: ', e))
-    .each((a) => {
-       console.log(JSON.stringify(a, null, 2));
-    })
 }
 
 function haveNoLogsDrain(app) {
@@ -53,4 +50,17 @@ function haveLogsDrain(app) {
 module.exports = {
   haveDrains: () => showAppNameThat(haveLogsDrain),
   missingDrains: () => showAppNameThat(haveNoLogsDrain),
+  oneApp: () => showAppNameThat(isprosecco),
+  addDrain: addDrain,
+}
+
+function isprosecco(app) {
+  return app.name === 'prosecco'
+}
+
+function addDrain(appName, drainUrl) {
+  heroku.apps(appName).logDrains().create({url: drainUrl}, (err, res) => {
+    if (err) console.log('Error creating drain for %s. Error: ', appName, JSON.stringify(err));
+    else console.log('LogDrain created: %s, is now draining to %s', appName, drainUrl);
+  })
 }
