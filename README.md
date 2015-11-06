@@ -4,7 +4,9 @@ A system to view and modify your logsDrain on heroku.
 
 ## Prerequist
 
+Setup heroku and/or logentries env.var.
 `export HEROKU_API_TOKEN=<your-token>`
+`export LOGENTRIES_API_KEY=<your-api-key>`
 
 
 #Usage

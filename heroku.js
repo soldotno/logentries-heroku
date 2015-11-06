@@ -50,12 +50,7 @@ function haveLogsDrain(app) {
 module.exports = {
   haveDrains: () => showAppNameThat(haveLogsDrain),
   missingDrains: () => showAppNameThat(haveNoLogsDrain),
-  oneApp: () => showAppNameThat(isprosecco),
   addDrain: addDrain,
-}
-
-function isprosecco(app) {
-  return app.name === 'prosecco'
 }
 
 function addDrain(appName, drainUrl) {
