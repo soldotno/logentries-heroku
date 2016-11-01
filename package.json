@@ -9,9 +9,9 @@
   "author": "Sindre Øye Svendby",
   "license": "ISC",
   "dependencies": {
-    "babel-core": "6.0.20",
-    "heroku-client": "2.3.2",
-    "highland": "2.5.1",
+    "babel-core": "6.18.0",
+    "heroku-client": "2.4.3",
+    "highland": "2.10.1",
     "logentries-api": "0.0.6"
   }
 }
