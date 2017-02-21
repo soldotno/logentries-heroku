@@ -1,5 +1,7 @@
 ####
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/soldotno/logentries-heroku.svg)](https://greenkeeper.io/)
+
 A system to view and modify your logsDrain on heroku.
 
 ## Prerequist
